@@ -1,0 +1,12 @@
+.todoMakerContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.todoMakerButton {
+    background-color: aqua;
+    padding: 10px 0;
+    width: 300px;
+    border: none;
+}

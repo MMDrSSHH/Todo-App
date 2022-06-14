@@ -1,0 +1,112 @@
+.todoContainer {
+    /*width: 600px;
+    */
+    --background-color: #f8f8ff;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.todoContainer.completed {
+    opacity: 0.8;
+}
+
+.taskTitle {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 30px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.taskTitle::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    top: 50%;
+    transform: translateY(50%);
+    left: calc(-50px / 2);
+    background: linear-gradient(to left, #4568bc, #b06ab3);
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    opacity: 0.6;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
+.completed .taskTitle {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.completed .taskTitle::before {
+    width: calc(100% + 50px);
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.ButtonWrapper {
+    padding: 2px;
+    background: linear-gradient(to left, #4568bc, #b06ab3);
+    border: none;
+    margin: 0 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.todoButton {
+    padding: 5px 10px;
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    font-size: 18px;
+}
+
+.buttonIcon {
+    margin-left: 2px;
+}
+
+.todoStarButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
