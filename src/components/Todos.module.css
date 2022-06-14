@@ -1,6 +1,10 @@
+.container {
+  position: relative;
+}
+
 .todosContainer {
   width: 60%;
-  height: 500px;
+  height: 550px;
   margin: 50px auto;
   display: grid;
   grid-template-columns: 100%;
@@ -12,7 +16,6 @@
   /* Hide scrollbar for IE and Edge and Firefox */
   -ms-overflow-style: none;
   scrollbar-width: none;
-  position: relative;
 
   /* mask overflow */
   /* scroll bar width, for use in mask calculations */
@@ -68,5 +71,6 @@
 .selector {
   position: absolute;
   top: 0;
-  right: 15%;
+  right: 25%;
+  z-index: 10;
 }
