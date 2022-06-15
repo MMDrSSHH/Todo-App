@@ -23,7 +23,7 @@ const formReducer = (state, action) => {
     }
 }
 
-const TodoMaker = () => {
+const TodoMaker = ({ setFilterValue, filterValue }) => {
     const [state, formDispatch] = useReducer(formReducer, initialState);
     const reduxDispatch = useDispatch();
     const [modalShow, setModalShow] = useState(false);
@@ -62,6 +62,16 @@ const TodoMaker = () => {
             >
                 Add Task
             </button>
+            <select
+                value={filterValue}
+                onChange={(event) => setFilterValue(event.target.value)}
+                className={styles.selector}
+            >
+                <option value="ALL">All</option>
+                <option value="COMPLETED">Completed</option>
+                <option value="UNCOMPLETED">Uncompleted</option>
+                <option value="STARRED">Starred</option>
+            </select>
             <TodoModal
                 state={state}
                 formDispatch={formDispatch}
