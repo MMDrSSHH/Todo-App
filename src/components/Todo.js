@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { completeTodo, uncompleteTodo, removeTodo, star, unStar } from '../redux/todo/todoSlice';
+import { Collapse } from 'react-bootstrap';
 
 // Icons
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
@@ -12,9 +13,22 @@ import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import styles from "./Todo.module.css";
 
 const Todo = ({ dispatch, todo }) => {
+    const [expandDesc, setExpandDesc] = useState(false);
     return (
         <div className={`${styles.todoContainer} ${todo.isComplete ? styles.completed : ""}`}>
             <span className={styles.taskTitle}>{todo.todoText}</span>
+
+            <button
+                className={`${styles.desButon} ${expandDesc ? styles.collapse : ""}`}
+                onClick={() => setExpandDesc(!expandDesc)}
+            >
+            Description
+            </button>
+            <Collapse in={expandDesc}>
+                <p className={styles.taskDescription}>
+                    {todo.todoDescription}
+                </p>
+            </Collapse>
             <div className={styles.buttonsContainer}>
                 <button
                     onClick={() => dispatch(removeTodo(todo))}
@@ -29,35 +43,35 @@ const Todo = ({ dispatch, todo }) => {
                         </span>
                     </div>
                 </button>
-                    {
-                        !todo.isComplete ?
-                            <button
-                                onClick={() => dispatch(completeTodo(todo))}
-                                className={styles.ButtonWrapper}
+                {
+                    !todo.isComplete ?
+                        <button
+                            onClick={() => dispatch(completeTodo(todo))}
+                            className={styles.ButtonWrapper}
+                        >
+                            <div
+                                className={styles.todoButton}
                             >
-                                <div
-                                    className={styles.todoButton}
-                                >
-                                    Complete
-                                    <span className={styles.buttonIcon}>
-                                        <CheckCircleOutlineOutlinedIcon />
-                                    </span>
-                                </div>
-                            </button> :
-                            <button
-                                onClick={() => dispatch(uncompleteTodo(todo))}
-                                className={styles.ButtonWrapper}
+                                Complete
+                                <span className={styles.buttonIcon}>
+                                    <CheckCircleOutlineOutlinedIcon />
+                                </span>
+                            </div>
+                        </button> :
+                        <button
+                            onClick={() => dispatch(uncompleteTodo(todo))}
+                            className={styles.ButtonWrapper}
+                        >
+                            <div
+                                className={styles.todoButton}
                             >
-                                <div
-                                    className={styles.todoButton}
-                                >
-                                    Uncomplete
-                                    <span className={styles.buttonIcon}>
-                                        <CancelOutlinedIcon />
-                                    </span>
-                                </div>
-                            </button>
-                    }
+                                Uncomplete
+                                <span className={styles.buttonIcon}>
+                                    <CancelOutlinedIcon />
+                                </span>
+                            </div>
+                        </button>
+                }
             </div>
             {
                 !todo.isStard ?

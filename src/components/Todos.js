@@ -9,7 +9,6 @@ import styles from './Todos.module.css';
 const Todos = ({ filterValue }) => {
     const { todos } = useSelector(state => state.todo);
     const reduxDispatch = useDispatch();
-    // const [selectValue, setSelectValue] = useState("ALL");
     const [filteredTodos, setFilteredTodos] = useState(todos);
 
     useEffect(() => {

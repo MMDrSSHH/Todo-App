@@ -24,10 +24,22 @@ const TodoModal = ({ state, formDispatch, submitHandler, error, show, setShow })
                             name="todoText"
                             value={state.todoText}
                             placeholder=" "
-                            onChange={event => formDispatch({ type: "FORM_TODO_TEXT", payload: event.target.value })}
+                            onChange={event => formDispatch({ type: "FORM_TODO_TASK_TITLE", payload: event.target.value })}
                         />
                         <label className={styles.inputPlaceholder}>
                             Task Title
+                        </label>
+                    </div>
+                    <div className={`${styles.modalInputContainer} ${styles.textareaContainer}`}>
+                        <textarea
+                            className={styles.inputField}
+                            name="todoDescription"
+                            value={state.todoDescription}
+                            placeholder=" "
+                            onChange={event => formDispatch({ type: 'FORM_TODO_TASK_DESCRIPTION', payload: event.target.value })}
+                        />
+                        <label className={styles.inputPlaceholder}>
+                            Task Description
                         </label>
                     </div>
                     {error.length > 0 && <p>{error}</p>}

@@ -8,14 +8,30 @@ import styles from './TodoMaker.module.css';
 
 const initialState = {
     todoText: "",
+    todoDescription: "",
 }
 
 const formReducer = (state, action) => {
     switch (action.type) {
-        case 'FORM_TODO_TEXT':
+        case 'FORM_TODO_TASK_TITLE':
             return {
+                ...state,
                 todoText: action.payload,
             }
+
+        case 'FORM_TODO_TASK_DESCRIPTION':
+            // if (action.payload.charCodeAt(action.payload.length - 1) === 10) {
+            //     return {
+            //         ...state,
+            //         todoDescription: state.todoDescription + "\n",
+            //     }
+            // }
+
+            return {
+                ...state,
+                todoDescription: action.payload,
+            }
+
         case 'FORM_TODO_CLEAR':
             return initialState;
         default:
@@ -28,6 +44,7 @@ const TodoMaker = ({ setFilterValue, filterValue }) => {
     const reduxDispatch = useDispatch();
     const [modalShow, setModalShow] = useState(false);
     const { todos, error } = useSelector(state => state.todo);
+
 
     // This effect is for closing the modal
     // when there is no error
@@ -46,6 +63,7 @@ const TodoMaker = ({ setFilterValue, filterValue }) => {
         const newTodo = {
             id: state.todoText.trim(),
             todoText: state.todoText.trim(),
+            todoDescription: state.todoDescription.trim(),
             isComplete: false,
             isStard: false,
         };
