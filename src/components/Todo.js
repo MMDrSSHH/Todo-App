@@ -29,7 +29,6 @@ const Todo = ({ dispatch, todo }) => {
                         </span>
                     </div>
                 </button>
-                <div>
                     {
                         !todo.isComplete ?
                             <button
@@ -59,7 +58,6 @@ const Todo = ({ dispatch, todo }) => {
                                 </div>
                             </button>
                     }
-                </div>
             </div>
             {
                 !todo.isStard ?
